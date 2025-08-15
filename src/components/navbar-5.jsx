@@ -1,9 +1,10 @@
 "use client";
 
 import { MenuIcon, Eye } from "lucide-react";
-import { Link } from "react-router-dom";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useLocation, useNavigate } from "react-router-dom";
+import { PopupButton } from "react-calendly";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import {
   Accordion,
@@ -32,37 +33,19 @@ import { useEffect } from "react";
 import WhatsAppButton from "./WhatsAppButton";
 
 export const Navbar5 = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const features = [
-    {
-      title: "Web Development",
-      // description: "Overview of your activity",
-      to: "/services/web-development",
-    },
-    {
-      title: "App Development",
-      // description: "Track your performance",
-      to: "/services/app-development",
-    },
+    { title: "Web Development", to: "/services/web-development" },
+    { title: "App Development", to: "/services/app-development" },
     {
       title: "Social Media Management",
-      // description: "Configure your preferences",
       to: "/services/social-media-management",
     },
-    {
-      title: "Data Analytics",
-      // description: "Connect with other tools",
-      to: "/services/data-analytics",
-    },
-    {
-      title: "AI & ML Models",
-      // description: "Manage your files",
-      to: "/services/ai-ml-models",
-    },
-    {
-      title: "Custom Software",
-      // description: "Get help when needed",
-      to: "/services/custom-software",
-    },
+    { title: "Data Analytics", to: "/services/data-analytics" },
+    { title: "AI & ML Models", to: "/services/ai-ml-models" },
+    { title: "Custom Software", to: "/services/custom-software" },
   ];
 
   useEffect(() => {
@@ -73,6 +56,13 @@ export const Navbar5 = () => {
     });
   }, []);
 
+  const isActive = (path) => location.pathname === path;
+
+  const handleNavClick = (path) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <section className="py-4 px-4 bg-none sticky top-0 z-50">
       <div className="container">
@@ -80,103 +70,128 @@ export const Navbar5 = () => {
           data-aos="fade-down"
           className="sticky top-0 z-99 flex items-center justify-between rounded-lg px-6 py-4 shadow-md backdrop-blur-md bg-background border border-white/20 transition-all duration-300"
         >
-          <Link to="/" className="flex items-center gap-2">
+          {/* Logo */}
+          <button
+            onClick={() => handleNavClick("/")}
+            className="flex items-center cursor-pointer gap-2"
+          >
             <Eye className="max-h-8" />
             <span className="text-lg font-semibold tracking-tighter">
               10Sight
             </span>
-          </Link>
+          </button>
 
+          {/* Desktop Menu */}
           <NavigationMenu className="hidden lg:block">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  <Link to='/services'>Services</Link>
+                <NavigationMenuTrigger className="cursor-pointer">
+                  Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[600px] grid-cols-2 p-3">
                     {features.map((feature, index) => (
-                      <Link
-                        to={feature.to}
+                      <button
                         key={index}
-                        className="rounded-md p-3 transition-colors hover:bg-muted/70"
+                        onClick={() => handleNavClick(feature.to)}
+                        className="text-left rounded-md p-3 cursor-pointer transition-colors hover:bg-muted/70 w-full"
                       >
                         <p className="mb-1 font-semibold text-foreground">
                           {feature.title}
                         </p>
-                        <p className="text-sm text-muted-foreground">
-                          {feature.description}
-                        </p>
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              {/* <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/portfolio">Portfolio</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem> */}
-
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/about-us">About Us</Link>
+                <NavigationMenuLink
+                  asChild
+                  className={navigationMenuTriggerStyle()}
+                >
+                  <button
+                    onClick={() => handleNavClick("/about-us")}
+                    className={`cursor-pointer ${
+                      isActive("/about-us") ? "font-semibold text-blue-600" : ""
+                    }`}
+                  >
+                    About Us
+                  </button>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/contact-us">Contact Us</Link>
+                <NavigationMenuLink
+                  asChild
+                  className={navigationMenuTriggerStyle()}
+                >
+                  <button
+                    onClick={() => handleNavClick("/contact-us")}
+                    className={`cursor-pointer ${
+                      isActive("/contact-us")
+                        ? "font-semibold text-blue-600"
+                        : ""
+                    }`}
+                  >
+                    Contact Us
+                  </button>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
+          {/* Desktop Buttons */}
           <div className="hidden items-center gap-4 lg:flex">
             <WhatsAppButton variant="outline">Contact Now</WhatsAppButton>
-            <Button>Book a Meeting</Button>
+            <PopupButton
+              url="https://calendly.com/jatinnagar563/book-a-meeting"
+              rootElement={document.getElementById("root")}
+              text="Book a Meeting"
+              className="px-4 cursor-pointer py-2 bg-black text-white rounded-md"
+            />
           </div>
 
+          {/* Mobile Menu */}
           <Sheet data-aos="fade-down">
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" className="cursor-pointer">
                 <MenuIcon className="h-4 w-4" />
               </Button>
             </SheetTrigger>
             <SheetContent side="top" className="max-h-screen overflow-auto">
               <SheetHeader>
                 <SheetTitle>
-                  <Link to="/" className="flex items-center gap-2">
+                  <button
+                    onClick={() => handleNavClick("/")}
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
                     <Eye className="max-h-8" />
                     <span className="text-lg font-semibold tracking-tighter">
                       10Sight
                     </span>
-                  </Link>
+                  </button>
                 </SheetTitle>
               </SheetHeader>
 
               <div className="flex flex-col p-4">
                 <Accordion type="single" collapsible className="mt-4 mb-2">
                   <AccordionItem value="services" className="border-none">
-                    <AccordionTrigger className="text-base hover:no-underline">
+                    <AccordionTrigger className="text-base hover:no-underline cursor-pointer">
                       Services
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="grid md:grid-cols-2">
                         {features.map((feature, index) => (
-                          <Link
-                            to={feature.to}
+                          <button
                             key={index}
-                            className="rounded-md p-3 transition-colors hover:bg-muted/70"
+                            onClick={() => handleNavClick(feature.to)}
+                            className="text-left rounded-md p-3 cursor-pointer transition-colors hover:bg-muted/70 w-full"
                           >
                             <p className="mb-1 font-semibold text-foreground">
                               {feature.title}
                             </p>
-                            <p className="text-sm text-muted-foreground">
-                              {feature.description}
-                            </p>
-                          </Link>
+                          </button>
                         ))}
                       </div>
                     </AccordionContent>
@@ -184,20 +199,28 @@ export const Navbar5 = () => {
                 </Accordion>
 
                 <div className="flex flex-col gap-6">
-                  <Link to="/portfolio" className="font-medium">
-                    Portfolio
-                  </Link>
-                  <Link to="/about-us" className="font-medium">
+                  <button
+                    onClick={() => handleNavClick("/about-us")}
+                    className="font-medium cursor-pointer"
+                  >
                     About Us
-                  </Link>
-                  <Link to="/contact-us" className="font-medium">
+                  </button>
+                  <button
+                    onClick={() => handleNavClick("/contact-us")}
+                    className="font-medium cursor-pointer"
+                  >
                     Contact Us
-                  </Link>
+                  </button>
                 </div>
 
                 <div className="mt-6 flex flex-col gap-4">
-                  <Button variant="outline">Sign in</Button>
-                  <Button>Start for free</Button>
+                  <WhatsAppButton variant="outline">Contact Now</WhatsAppButton>
+                  <PopupButton
+                    url="https://calendly.com/jatinnagar563/book-a-meeting"
+                    rootElement={document.getElementById("root")}
+                    text="Book a Meeting"
+                    className="px-4 cursor-pointer py-2 bg-black text-white rounded-md"
+                  />
                 </div>
               </div>
             </SheetContent>

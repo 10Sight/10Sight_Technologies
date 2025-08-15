@@ -2,16 +2,23 @@ import React from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import PlanningImg from '../assets/Illustrator/Planning.jpg';
+import ReqImg from '../assets/Illustrator/Requirenment.jpg';
+import DesignImg from '../assets/Illustrator/Design.jpg';
+import DeveImg from '../assets/Illustrator/Development.jpg';
+import TestImg from '../assets/Illustrator/Testing.jpg';
+import DeployImg from '../assets/Illustrator/Deployment.jpg';
+import MaintainImg from '../assets/Illustrator/Maintancence.jpg';
 import service1 from '../assets/services/service1.webp'
 
 const steps = [
-  { title: 'Planning', description: 'We start by deeply understanding your vision, business goals, and target audience. This strategic foundation ensures every decision aligns with your long-term objectives.', image: service1 },
-  { title: 'Requirement', description: "We gather detailed functional and technical requirements through consultations and research. This helps define the project's scope, deliverables, and timelines clearly.", image: service1 },
-  { title: 'Design', description: 'Our UI/UX experts craft intuitive wireframes and elegant designs that reflect your brand identity and enhance user engagement across all devices.', image: service1 },
-  { title: 'Development', description: 'Our developers bring the design to life using modern technologies. We follow clean coding practices and build scalable, secure, and high-performance solutions.', image: service1 },
-  { title: 'Testing', description: 'We perform rigorous manual and automated testing to ensure your product is bug-free, responsive, and performs smoothly across all platforms.', image: service1 },
-  { title: 'Deployment', description: 'Once tested and approved, we deploy your solution to the live environment with minimal downtime and optimal configuration for speed and stability.', image: service1 },
-  { title: 'Maintenance', description: 'Post-launch, we provide continuous support, updates, and improvements to ensure your solution remains reliable, up-to-date, and ahead of the curve.', image: service1 },
+  { title: 'Planning', description: 'We start by deeply understanding your vision, business goals, and target audience. This strategic foundation ensures every decision aligns with your long-term objectives.', image: PlanningImg },
+  { title: 'Requirement', description: "We gather detailed functional and technical requirements through consultations and research. This helps define the project's scope, deliverables, and timelines clearly.", image: ReqImg },
+  { title: 'Design', description: 'Our UI/UX experts craft intuitive wireframes and elegant designs that reflect your brand identity and enhance user engagement across all devices.', image: DesignImg },
+  { title: 'Development', description: 'Our developers bring the design to life using modern technologies. We follow clean coding practices and build scalable, secure, and high-performance solutions.', image: DeveImg },
+  { title: 'Testing', description: 'We perform rigorous manual and automated testing to ensure your product is bug-free, responsive, and performs smoothly across all platforms.', image: TestImg },
+  { title: 'Deployment', description: 'Once tested and approved, we deploy your solution to the live environment with minimal downtime and optimal configuration for speed and stability.', image: DeployImg },
+  { title: 'Maintenance', description: 'Post-launch, we provide continuous support, updates, and improvements to ensure your solution remains reliable, up-to-date, and ahead of the curve.', image: MaintainImg },
 ]
 
 const WorkingProcess = () => {

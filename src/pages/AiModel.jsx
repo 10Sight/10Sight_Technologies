@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import image1 from "../assets/services/service1.webp";
+import AiModelImg from "../assets/services/Ai-Ml-Models.jpg";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {
@@ -23,7 +23,7 @@ const AiModel = () => {
   ];
 
   const aiMlDetails = {
-    image: image1,
+    image: AiModelImg,
     alt: "AI & ML Models Service",
     title: "Why AI & ML Models are Important?",
     points: [
@@ -127,7 +127,7 @@ const AiModel = () => {
         title="Bring AI to Your Business"
         description="Harness the power of Artificial Intelligence and Machine Learning to automate tasks, predict outcomes, and gain a competitive advantage."
         buttonText="Start My AI Project"
-        buttonUrl="#"
+        buttonUrl="https://calendly.com/jatinnagar563/book-a-meeting"
       />
     </div>
   );

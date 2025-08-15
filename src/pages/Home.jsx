@@ -9,8 +9,17 @@ import { ScrollVelocity } from "@/components/ui/scroll-velocity";
 
 // Assets
 import service1 from "../assets/services/service1.webp";
+import SocialMediaImg from '../assets/services/Social-Media-Management.jpg';
+import AiModels from '../assets/services/Ai-Ml-Models.jpg';
+import DataAnalyst from '../assets/services/Data-Analyst.jpg';
+
 import icon1 from "../assets/icons/web.png";
-import python from "../assets/stack/python.jpeg";
+import WebIcon from '../assets/icons/WebDev.png';
+import AiIcon from '../assets/icons/Models.png';
+import SocialIcon from '../assets/icons/Social.png';
+import DataIcon from '../assets/icons/Data.png';
+
+
 import TestimonialSlider from "@/components/testimonial-slider";
 import ContactSection from "@/components/ContactSection";
 import InfoGrid from "@/components/InfoGrid";
@@ -19,27 +28,27 @@ import InfoGrid from "@/components/InfoGrid";
 const services = [
   {
     title: "Website Development",
-    icon: icon1,
+    icon: WebIcon,
     image: service1,
-    link: "/services/website-development",
+    link: "/services/web-development",
   },
   {
     title: "AI/ML Solution",
-    icon: icon1,
-    image: service1,
-    link: "/services/ai-ml-solutions",
+    icon: AiIcon,
+    image: AiModels,
+    link: "/services/ai-ml-models",
   },
   {
     title: "Social Media Management",
-    icon: icon1,
-    image: service1,
+    icon: SocialIcon,
+    image: SocialMediaImg,
     link: "/services/social-media-management",
   },
   {
     title: "Data Analysis",
-    icon: icon1,
-    image: service1,
-    link: "/services/data-analysis",
+    icon: DataIcon,
+    image: DataAnalyst,
+    link: "/services/data-analytics",
   },
 ];
 

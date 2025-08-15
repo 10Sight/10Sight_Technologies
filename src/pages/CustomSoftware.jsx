@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import image1 from "../assets/services/service1.webp";
+import CustomSoftImg from "../assets/services/Custom-Software.jpg";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {
@@ -23,7 +23,7 @@ const CustomSoftware = () => {
   ];
 
   const softwareDetails = {
-    image: image1,
+    image: CustomSoftImg,
     alt: "Custom Software Development Service",
     title: "Why Custom Software is Important?",
     points: [
@@ -127,7 +127,7 @@ const CustomSoftware = () => {
         title="Let’s Build Your Custom Software"
         description="From concept to deployment, we create custom software that fits your business perfectly and evolves with your growth."
         buttonText="Start My Project"
-        buttonUrl="#"
+        buttonUrl="https://calendly.com/jatinnagar563/book-a-meeting"
       />
     </div>
   );

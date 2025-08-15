@@ -56,13 +56,13 @@ function Footerdemo() {
               <Link to="/" className="block transition-colors hover:text-primary">
                 Home
               </Link>
-              <Link to="portfolio" className="block transition-colors hover:text-primary">
+              {/* <Link to="portfolio" className="block transition-colors hover:text-primary">
                 Portfolio
-              </Link>
+              </Link> */}
               <Link to="/services" className="block transition-colors hover:text-primary">
                 Services
               </Link>
-              <Link to="About Us" className="block transition-colors hover:text-primary">
+              <Link to="/about-us" className="block transition-colors hover:text-primary">
                 About Us
               </Link>
               <Link to="/contact-us" className="block transition-colors hover:text-primary">
@@ -75,8 +75,8 @@ function Footerdemo() {
             <address className="space-y-2 text-sm not-italic">
               <p>India, New Delhi</p>
               <p>Shalimar Bagh - 110088</p>
-              <p>Phone: 91+ 9711341936</p>
-              <p>Email: 10sight@support.com</p>
+              <p>Phone: <a href="tel:919711341936">9711341936</a></p>
+              <p>Email: <a href="mailto:10sight.ten@gmail.com">10Sight.ten@gmail.com</a></p>
             </address>
           </div>
           <div className="relative">
@@ -135,14 +135,14 @@ function Footerdemo() {
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <div className="flex items-center space-x-2">
+            {/* <div className="flex items-center space-x-2">
               <Sun className="h-4 w-4" />
               <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={setIsDarkMode} />
               <Moon className="h-4 w-4" />
               <Label htmlFor="dark-mode" className="sr-only">
                 Toggle dark mode
               </Label>
-            </div>
+            </div> */}
           </div>
         </div>
         <div

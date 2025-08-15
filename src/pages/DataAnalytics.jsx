@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import image1 from "../assets/services/service1.webp";
+import DataAnalystImg from "../assets/services/Data-Analyst.jpg";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {
@@ -23,7 +23,7 @@ const DataAnalytics = () => {
   ];
 
   const dataAnalyst = {
-    image: image1,
+    image: DataAnalystImg,
     alt: "Data Analyst Service",
     title: "Why Data Analysis is Important?",
     points: [
@@ -127,7 +127,7 @@ const DataAnalytics = () => {
         title="Turn Your Data Into Decisions"
         description="Stop guessing and start knowing. We’ll help you uncover insights hidden in your data and turn them into actionable strategies."
         buttonText="Analyze My Data"
-        buttonUrl="#"
+        buttonUrl="https://calendly.com/jatinnagar563/book-a-meeting"
       />
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import heroVideo from "../assets/videos/Reel Preview.mp4";
+import { Link } from "react-router-dom";
 
 const HeroSection1 = () => {
   const videoRef = useRef(null);
@@ -39,18 +40,18 @@ const HeroSection1 = () => {
           </div>
 
           <div className="mt-8 flex gap-x-4 justify-center sm:justify-start">
-            <a
-              href="#"
+            <Link
+              to="/contact-us"
               className="rounded-md bg-black px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
             >
               Get started
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/about-us"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Learn more <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

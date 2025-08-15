@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import image1 from "../assets/services/service1.webp";
+import AppDevImg from "../assets/services/App-Development .jpg";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {
@@ -23,7 +23,7 @@ const AppDevelopment = () => {
   ];
 
   const appDevelopment = {
-    image: image1,
+    image: AppDevImg,
     alt: "App Development Service",
     title: "Why App Development is Important?",
     points: [
@@ -127,7 +127,7 @@ const AppDevelopment = () => {
         title="Ready to Launch Your App?"
         description="Your app could be the next big thing — let’s bring it to life with our expert development team. From idea to store launch, we’ve got you covered."
         buttonText="Get Started Now"
-        buttonUrl="#"
+        buttonUrl="https://calendly.com/jatinnagar563/book-a-meeting"
       />
     </div>
   );

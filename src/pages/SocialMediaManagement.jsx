@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import image1 from "../assets/services/service1.webp";
+import SocialMediaImg from "../assets/services/Social-Media-Management.jpg";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {
@@ -23,7 +23,7 @@ const SocialMediaManagement = () => {
   ];
 
   const socialMedia = {
-    image: image1,
+    image: SocialMediaImg,
     alt: "Social Media Management Service",
     title: "Why Social Media Management is Important?",
     points: [
@@ -127,7 +127,7 @@ const SocialMediaManagement = () => {
         title="Ready to Grow Your Social Presence?"
         description="Let us handle your social media so you can focus on your business. From content creation to community management, we’ll make your brand shine online."
         buttonText="Boost My Social Media"
-        buttonUrl="#"
+        buttonUrl="https://calendly.com/jatinnagar563/book-a-meeting"
       />
     </div>
   );

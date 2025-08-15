@@ -20,7 +20,7 @@ const ServiceBox = ({ data, aos = "fade-up" }) => {
         
         {/* Centered Icon + Title */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-white text-center px-4">
-          <div className="bg-gray-800 p-4 rounded-lg mb-3">
+          <div className="bg-gray-300 p-4 rounded-lg mb-3">
             <img
               src={data?.icon}
               alt="Icon"
@@ -35,7 +35,7 @@ const ServiceBox = ({ data, aos = "fade-up" }) => {
 
         {/* Description appears only on hover */}
         <div
-          className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-sm text-white z-10"
+          className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity text-xl duration-500 text-sm text-white z-10"
           dangerouslySetInnerHTML={{ __html: data?.description }}
         ></div>
       </div>
