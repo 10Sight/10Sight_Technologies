@@ -19,6 +19,9 @@ const SocialMediaManagement = lazy(() => import("./pages/SocialMediaManagement")
 const DataAnalytics = lazy(() => import("./pages/DataAnalytics"));
 const AiModel = lazy(() => import("./pages/AiModel"));
 const CustomSoftware = lazy(() => import("./pages/CustomSoftware"));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const CookieSettings = lazy(() => import('./pages/CookieSettings'));
 
 const App = () => {
   const location = useLocation();
@@ -106,12 +109,17 @@ const App = () => {
             <Route path="/about-us" element={<AboutPage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/services" element={<ServicesPage />} />
+
             <Route path="/services/web-development" element={<WebDevelopment />} />
             <Route path="/services/app-development" element={<AppDevelopment />} />
             <Route path="/services/social-media-management" element={<SocialMediaManagement />} />
             <Route path="/services/data-analytics" element={<DataAnalytics />} />
             <Route path="/services/ai-ml-models" element={<AiModel />} />
             <Route path="/services/custom-software" element={<CustomSoftware />} />
+
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookie-settings" element={<CookieSettings />} />
           </Routes>
         </Suspense>
       </HomeLayout>

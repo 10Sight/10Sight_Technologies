@@ -1,4 +1,5 @@
 import React from "react";
+// import { FaUserCircle } from "react-icons/fa";
 
 import BreadCrumbs from "@/components/BreadCrumbs";
 import AboutSection from "@/components/AboutSection";
@@ -7,6 +8,7 @@ import WorkingProcessFlex from "@/components/WorkingProcessFlex";
 import InfoGrid from "@/components/InfoGrid";
 
 import icon1 from '../assets/icons/web.png';
+import Manav from '../assets/Team/MG.jpg';
 
 const AboutPage = () => {
   const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "About Us" }];
@@ -162,8 +164,8 @@ const AboutPage = () => {
 
         <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {[
-            { name: "Jatin Kumar Nagar", role: "Founder & Co-Founder", img: "/team1.jpg" },
-            { name: "Manav Gupta", role: "Founder & Co-Founder", img: icon1},
+            { name: "Jatin Kumar Nagar", role: "Founder & Co-Founder", img: "https://ui-avatars.com/api/?name=Jatin+Kumar+Nagar&size=96" },
+            { name: "Manav Gupta", role: "Founder & Co-Founder", img: Manav},
           ].map((member, i) => (
             <div
               key={i}

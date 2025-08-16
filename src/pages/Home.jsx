@@ -156,7 +156,7 @@ const Home = () => {
         </h2>
         <WorkingProcess />
       </section>
-      <TestimonialSlider />
+      {/* <TestimonialSlider /> */}
       <ContactSection />
     </div>
   );
