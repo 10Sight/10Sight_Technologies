@@ -45,7 +45,7 @@ const App = () => {
   };
 
   const { title, description, keywords, image } = getRouteData(location.pathname);
-  const siteUrl = "https://10sight.tech"; // Change to your domain
+  const siteUrl = "https://www.10sight.tech"; // Change to your domain
   const pageUrl = `${siteUrl}${location.pathname}`;
 
   return (
@@ -91,7 +91,7 @@ const App = () => {
               "https://facebook.com/yourpage",
               "https://x.com/@10Sight98603",
               "https://linkedin.com/company/yourcompany",
-              "https://www.instagram.com/10sight.s/"
+              "https://www.instagram.com/10sight_technologies/"
             ]
           }
           `}

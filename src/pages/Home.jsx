@@ -8,10 +8,10 @@ import { HoverEffect } from "@/components/ui/hover-effect";
 import { ScrollVelocity } from "@/components/ui/scroll-velocity";
 
 // Assets
-import service1 from "../assets/services/service1.webp";
-import SocialMediaImg from '../assets/services/Social-Media-Management.webp';
-import AiModels from '../assets/services/Ai-Ml-Models.webp';
-import DataAnalyst from '../assets/services/Data-Analyst.webp';
+import service1 from "/services/service1.webp";
+import SocialMediaImg from '/services/Social-Media-Management.webp';
+import AiModels from '/services/Ai-Ml-Models.webp';
+import DataAnalyst from '/services/Data-Analyst.webp';
 
 import icon1 from "../assets/icons/web.png";
 import WebIcon from '../assets/icons/WebDev.png';

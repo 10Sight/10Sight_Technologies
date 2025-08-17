@@ -2,7 +2,7 @@ import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 import { href } from "react-router-dom";
 
-import image1 from "../assets/services/service1.webp";
+import image1 from "/services/service1.webp";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {

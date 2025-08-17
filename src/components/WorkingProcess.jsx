@@ -9,7 +9,7 @@ import DeveImg from '../assets/Illustrator/Development.jpg';
 import TestImg from '../assets/Illustrator/Testing.jpg';
 import DeployImg from '../assets/Illustrator/Deployment.jpg';
 import MaintainImg from '../assets/Illustrator/Maintancence.jpg';
-import service1 from '../assets/services/service1.webp'
+// import service1 from '../assets/services/service1.webp'
 
 const steps = [
   { title: 'Planning', description: 'We start by deeply understanding your vision, business goals, and target audience. This strategic foundation ensures every decision aligns with your long-term objectives.', image: PlanningImg },
