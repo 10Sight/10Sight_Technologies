@@ -23,7 +23,7 @@ const steps = [
 
 const WorkingProcess = () => {
   React.useEffect(() => {
-    AOS.init({ duration: 1000 })
+    AOS.init({ duration: 200 })
   }, [])
 
   return (

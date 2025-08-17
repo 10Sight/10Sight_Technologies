@@ -89,8 +89,9 @@ const App = () => {
             "logo": "${siteUrl}/logo.png",
             "sameAs": [
               "https://facebook.com/yourpage",
-              "https://twitter.com/yourhandle",
-              "https://linkedin.com/company/yourcompany"
+              "https://x.com/@10Sight98603",
+              "https://linkedin.com/company/yourcompany",
+              "https://www.instagram.com/10sight.s/"
             ]
           }
           `}

@@ -125,12 +125,12 @@ const Home = () => {
 
       {/* Services Section */}
       <section className="flex flex-col items-center justify-center py-10 lg:mt-24">
-        <h2
+        <h1
           className="sora-700 text-center mb-4 text-4xl leading-[3rem] md:leading-[3.3rem] text-primary font-bold"
           data-aos="fade-up"
         >
           Our awesome <br /> services to give you success
-        </h2>
+        </h1>
         <div className="grid gap-8 mt-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-5 lg:px-8">
           {services.map((item, index) => (
             <ServiceCard key={index} data={item} />
