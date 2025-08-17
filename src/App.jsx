@@ -45,16 +45,12 @@ const App = () => {
   };
 
   const { title, description, keywords, image } = getRouteData(location.pathname);
-  const siteUrl = "https://yoursite.com"; // Change to your domain
+  const siteUrl = "https://10sight.tech"; // Change to your domain
   const pageUrl = `${siteUrl}${location.pathname}`;
 
   return (
     <HelmetProvider>
       <Helmet>
-        {/* Preload important assets */}
-        <link rel="preload" href="/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/logo.png" as="image" />
-        <link rel="preload" href="/hero-image.jpg" as="image" />
 
         {/* SEO Meta */}
         <title>{`10Sight Technologies | ${title}`}</title>
