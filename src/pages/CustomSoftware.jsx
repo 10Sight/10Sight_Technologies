@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import CustomSoftImg from "../assets/services/Custom-Software.jpg";
+import CustomSoftImg from "../assets/services/Custom-Software.webp";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {

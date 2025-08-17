@@ -12,11 +12,11 @@ import ModelIcon from '../assets/icons/Models.png';
 
 //Services Image
 import service1 from "../assets/services/service1.webp";
-import AppDevImg from "../assets/services/App-Development .jpg";
-import AiModelImg from "../assets/services/Ai-Ml-Models.jpg";
-import SocialMediaImg from "../assets/services/Social-Media-Management.jpg";
-import DataAnalystImg from "../assets/services/Data-Analyst.jpg";
-import CustomSoftImg from "../assets/services/Custom-Software.jpg";
+import AppDevImg from "../assets/services/App-Development .webp";
+import AiModelImg from "../assets/services/Ai-Ml-Models.webp";
+import SocialMediaImg from "../assets/services/Social-Media-Management.webp";
+import DataAnalystImg from "../assets/services/Data-Analyst.webp";
+import CustomSoftImg from "../assets/services/Custom-Software.webp";
 
 import ServiceBox from "@/components/ServiceBox";
 import WorkingProcessFlex from "@/components/WorkingProcessFlex";

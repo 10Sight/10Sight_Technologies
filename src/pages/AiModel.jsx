@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import AiModelImg from "../assets/services/Ai-Ml-Models.jpg";
+import AiModelImg from "../assets/services/Ai-Ml-Models.webp";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {

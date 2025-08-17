@@ -1,7 +1,7 @@
 import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
 
-import SocialMediaImg from "../assets/services/Social-Media-Management.jpg";
+import SocialMediaImg from "../assets/services/Social-Media-Management.webp";
 import ServiceDetail from "@/components/ServiceDetail";
 import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
 import {
