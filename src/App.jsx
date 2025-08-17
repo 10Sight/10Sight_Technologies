@@ -76,7 +76,7 @@ const App = () => {
         <meta name="twitter:title" content={`10Sight Technologies | ${title}`} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={`${siteUrl}${image}`} />
-        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta name="twitter:site" content="@10Sight98603" />
 
         {/* JSON-LD */}
         <script type="application/ld+json">

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const ServiceCard = ({ data, aos = 'fade-up' }) => {
   return (
     <Link to={data?.link} data-aos={aos} className='relative bg-white rounded-[1rem] shadow-lg overflow-hidden max-w-[22rem] max-h-[22rem] group hover:shadow-xl'>
-      <img src={data?.image} alt="Service" className='w-full translate-transform duration-700 group-hover:scale-[1.15] h-auto' />
+      <img src={data?.image} alt={data?.title} className='w-full translate-transform duration-700 group-hover:scale-[1.15] h-auto' />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-500 via-transparent to-transparent flex items-end justify-center hover:from-[10%] hover:from-black  hover:to-transparent transition-all duration-300">
         <div className="relative z-10 text-center text-white mb-7">
             <div className="mb-10 bg-gray-400 p-4 mx-auto w-fit rounded-lg">
