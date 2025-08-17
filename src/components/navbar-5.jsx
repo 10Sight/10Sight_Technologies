@@ -29,12 +29,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import WhatsAppButton from "./WhatsAppButton";
 
 export const Navbar5 = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const features = [
     { title: "Web Development", to: "/services/web-development" },
@@ -61,6 +62,7 @@ export const Navbar5 = () => {
   const handleNavClick = (path) => {
     navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setOpen(false);
   };
 
   return (
@@ -153,7 +155,7 @@ export const Navbar5 = () => {
           </div>
 
           {/* Mobile Menu */}
-          <Sheet data-aos="fade-down">
+          <Sheet data-aos="fade-down" open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="outline" size="icon" className="cursor-pointer">
                 <MenuIcon className="h-4 w-4" />
@@ -214,12 +216,13 @@ export const Navbar5 = () => {
                 </div>
 
                 <div className="mt-6 flex flex-col gap-4">
-                  <WhatsAppButton variant="outline">Contact Now</WhatsAppButton>
+                  <WhatsAppButton variant="outline" onClick={() => setOpen(false)}>Contact Now</WhatsAppButton>
                   <PopupButton
                     url="https://calendly.com/jatinnagar563/book-a-meeting"
                     rootElement={document.getElementById("root")}
                     text="Book a Meeting"
                     className="px-4 cursor-pointer py-2 bg-black text-white rounded-md"
+                    onClick={() => setOpen(false)}
                   />
                 </div>
               </div>
