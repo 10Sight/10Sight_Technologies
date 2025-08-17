@@ -25,6 +25,7 @@ const ServiceBox = ({ data, aos = "fade-up" }) => {
               src={data?.icon}
               alt="Icon"
               className="w-8 h-auto"
+              loading="lazy"
             />
           </div>
           <h2

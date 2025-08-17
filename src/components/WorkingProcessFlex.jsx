@@ -52,7 +52,7 @@ const WorkingProcessFlex = () => {
                     <div className="flex flex-col items-center ">
 
                         <div className="w-[15rem] h-[15rem] flex-shrink-0">
-                            <img src={illustration3} alt="Deployment and Maintenance" className="object-contain w-full h-full" />
+                            <img src={illustration3} alt="Deployment and Maintenance" loading='lazy' className="object-contain w-full h-full" />
                         </div>
                         <div className='flex items-center text-center max-w-[20rem] justify-center flex-col'>
                             <span className="text-xl font-bold bg-black text-white p-[9.5px] size-12 rounded-full">03</span>

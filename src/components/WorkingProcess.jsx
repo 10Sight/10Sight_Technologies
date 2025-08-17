@@ -46,6 +46,7 @@ const WorkingProcess = () => {
                   src={step.image}
                   alt={step.title}
                   className="w-[300px] h-[300px] object-cover rounded-lg shadow-md"
+                  loading='lazy'
                 />
               </div>
 
