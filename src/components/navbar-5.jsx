@@ -67,7 +67,7 @@ export const Navbar5 = () => {
 
   return (
     <section className="py-4 px-4 bg-none sticky top-0 z-50">
-      <div className="container">
+      <div className="container mx-auto">
         <nav
           data-aos="fade-down"
           className="sticky top-0 z-99 flex items-center justify-between rounded-lg px-6 py-4 shadow-md backdrop-blur-md bg-background border border-white/20 transition-all duration-300"
