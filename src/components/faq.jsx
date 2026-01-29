@@ -7,38 +7,50 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const FaqSection = React.forwardRef(
-  ({ className, title, description, items = [], contactInfo, ...props }, ref) => {
+  ({ className, title, description, category, items = [], contactInfo, ...props }, ref) => {
     if (!items.length) return null;
 
     return (
       <section
         ref={ref}
         className={cn(
-          "py-10 sm:py-14 lg:py-16 w-full bg-white from-transparent via-muted/50 to-transparent",
+          "py-20 w-full bg-[#01070f]",
           className
         )}
         {...props}
       >
-        <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto text-center mb-8 sm:mb-12"
+            className="max-w-3xl mx-auto text-center mb-16"
           >
-            <h2 className="text-4xl font-bold sm:text-3xl lg:text-4xl mb-3 bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent">
-              {title}
-            </h2>
+            {title && (
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                {title}
+              </h2>
+            )}
             {description && (
-              <p className="text-sm sm:text-base text-muted-foreground">
+              <p className="text-gray-400 text-lg">
                 {description}
               </p>
             )}
           </motion.div>
 
           {/* FAQ Items */}
-          <div className="max-w-3xl mx-auto space-y-2">
+          <div className="max-w-4xl mx-auto">
+            {/* Category Title */}
+            {category && (
+              <div className="mb-8">
+                <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2 w-fit cursor-pointer transition-transform duration-500 ease-in-out hover:translate-x-4">
+                  <span className="h-[2px] w-4 bg-white inline-block"></span>
+                  {category}
+                </h3>
+              </div>
+            )}
+
             {items.map((item, index) => (
               <FaqItem
                 key={index}
@@ -55,18 +67,12 @@ const FaqSection = React.forwardRef(
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="max-w-md mx-auto mt-10 sm:mt-12 p-4 sm:p-6 rounded-lg text-center bg-card shadow"
+              className="max-w-md mx-auto mt-16 text-center"
             >
-              <div className="inline-flex items-center justify-center p-1.5 rounded-full mb-4 bg-muted">
-                <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <p className="text-sm sm:text-base font-medium text-foreground mb-1">
-                {contactInfo.title}
-              </p>
-              <p className="text-xs sm:text-sm text-muted-foreground mb-4">
+              <p className="text-gray-400 mb-6">
                 {contactInfo.description}
               </p>
-              <Button size="sm" className="text-sm sm:text-base px-4 py-2" onClick={contactInfo.onContact}>
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8" onClick={contactInfo.onContact}>
                 {contactInfo.buttonText}
               </Button>
             </motion.div>
@@ -79,6 +85,8 @@ const FaqSection = React.forwardRef(
 FaqSection.displayName = "FaqSection";
 
 // Internal FAQ Item
+import { MoveRight } from "lucide-react";
+
 const FaqItem = React.forwardRef(({ question, answer, index }, ref) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -88,42 +96,32 @@ const FaqItem = React.forwardRef(({ question, answer, index }, ref) => {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, delay: index * 0.1 }}
-      className={cn(
-        "group rounded-lg border border-border/50 transition-all duration-200 ease-in-out",
-        isOpen
-          ? "bg-gradient-to-br from-background via-muted/50 to-background"
-          : "hover:bg-muted/50"
-      )}
+      className="border-b border-white/10"
     >
-      <Button
-        variant="ghost"
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 sm:px-6 py-3 sm:py-4 h-auto justify-between hover:bg-transparent gap-2"
+        className="w-full py-6 flex items-center justify-between group text-left"
       >
         <h3
           className={cn(
-            "text-sm sm:text-base lg:text-lg font-medium text-left transition-colors duration-200",
-            "text-foreground/70",
-            "break-words whitespace-normal flex-1", // ✅ wrapping fix
-            isOpen && "text-foreground"
+            "text-lg md:text-xl font-medium transition-colors duration-200 pr-8",
+            isOpen ? "text-white" : "text-gray-300 group-hover:text-white"
           )}
         >
           {question}
         </h3>
-        <motion.div
-          animate={{
-            rotate: isOpen ? 180 : 0,
-            scale: isOpen ? 1.1 : 1,
-          }}
-          transition={{ duration: 0.2 }}
-          className={cn(
-            "p-0.5 rounded-full flex-shrink-0 transition-colors duration-200",
-            isOpen ? "text-primary" : "text-muted-foreground"
-          )}
-        >
-          <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5" />
-        </motion.div>
-      </Button>
+
+        {/* Arrow Icon in Circle */}
+        <div className={cn(
+          "h-10 w-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0",
+          isOpen
+            ? "border-blue-500 bg-blue-500/10 text-blue-500 rotate-90"
+            : "border-white/10 text-gray-500 group-hover:border-white/30 group-hover:text-white"
+        )}>
+          <MoveRight className="h-5 w-5" />
+        </div>
+      </button>
+
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
@@ -131,23 +129,16 @@ const FaqItem = React.forwardRef(({ question, answer, index }, ref) => {
             animate={{
               height: "auto",
               opacity: 1,
-              transition: { duration: 0.2, ease: "easeOut" },
+              transition: { duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] },
             }}
             exit={{
               height: 0,
               opacity: 0,
-              transition: { duration: 0.2, ease: "easeIn" },
+              transition: { duration: 0.2, ease: "easeInOut" },
             }}
           >
-            <div className="px-4 sm:px-6 pb-4 pt-2">
-              <motion.p
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -10, opacity: 0 }}
-                className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed"
-              >
-                {answer}
-              </motion.p>
+            <div className="pb-8 text-gray-400 leading-relaxed text-base md:text-lg max-w-3xl">
+              {answer}
             </div>
           </motion.div>
         )}

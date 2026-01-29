@@ -1,101 +1,164 @@
-import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
-import { href } from "react-router-dom";
 
-//Icons
-import WebIcon from '../assets/icons/WebDev.png';
-import AppIcon from '../assets/icons/AppDev.png';
-import CustomIcon from '../assets/icons/Custom.png';
-import DataIcon from '../assets/icons/Data.png';
-import SocialIcon from '../assets/icons/Social.png';
-import ModelIcon from '../assets/icons/Models.png';
-
-//Services Image
-import service1 from "/services/service1.webp";
-import AppDevImg from "/services/App-Development .webp";
-import AiModelImg from "/services/Ai-Ml-Models.webp";
-import SocialMediaImg from "/services/Social-Media-Management.webp";
-import DataAnalystImg from "/services/Data-Analyst.webp";
-import CustomSoftImg from "/services/Custom-Software.webp";
-
-import ServiceBox from "@/components/ServiceBox";
-import WorkingProcessFlex from "@/components/WorkingProcessFlex";
+import ServiceDetailList from "@/components/ServiceDetailList";
+import LetsBuildCTA from "@/components/LetsBuildCTA";
+import ContactSection from "@/components/ContactSection";
 
 const ServicesPage = () => {
-  const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Services" }];
-
   const services = [
     {
       title: "Website Development",
-      icon: WebIcon,
-      image: service1,
+      gradient: "from-green-400 to-green-900",
+      description: "We build stunning, responsive websites that combine sleek design with powerful functionality.",
       link: "/services/web-development",
-      description:
-        "We build stunning, responsive websites that combine sleek design with powerful functionality. Whether you're starting from scratch or revamping your site, we ensure it performs fast, looks great on all devices, and converts visitors into customers.",
     },
     {
-      title: "App Development",
-      icon: AppIcon,
-      image: AppDevImg,
-      link: "/services/app-development",
-      description:
-        "From ideation to launch, we develop high-performance mobile apps tailored to your business goals. Our team builds intuitive, secure, and scalable apps for Android and iOS using the latest frameworks and tech.",
-    },
-    {
-      title: "AI/ML Solution",
-      icon: ModelIcon,
-      image: AiModelImg,
+      title: "AI/ML Solutions",
+      gradient: "from-red-300 to-red-900",
+      description: "Leverage data and machine learning to automate processes and gain smarter business insights.",
       link: "/services/ai-ml-solutions",
-      description:
-        "Leverage data and machine learning to automate processes and gain smarter business insights. From AI chatbots to predictive analytics, we help you integrate intelligent solutions that drive growth and innovation.",
-    },
-    {
-      title: "Social Media Management",
-      icon: SocialIcon,
-      image: SocialMediaImg,
-      link: "/services/social-media-management",
-      description:
-        "We help you build a strong, engaging presence across platforms like Instagram, Facebook, LinkedIn, and more. From strategy and content creation to posting, monitoring, and analytics — we manage it all so you can focus on running your business while we grow your audience and brand visibility.",
     },
     {
       title: "Data Analysis",
-      icon: DataIcon,
-      image: DataAnalystImg,
+      gradient: "from-indigo-300 to-indigo-900",
+      description: "Unlock powerful insights from your data with our expert analysis services.",
       link: "/services/data-analysis",
-      description:
-        "Unlock powerful insights from your data with our expert analysis services. We turn complex data into clear, actionable strategies — helping you make smarter business decisions, optimize performance, and identify new opportunities using tools like Excel, Python, and Power BI.",
+    },
+    {
+      title: "Social Media Management",
+      gradient: "from-teal-200 to-teal-800",
+      description: "We help you build a strong, engaging presence across platforms like Instagram, Facebook, LinkedIn.",
+      link: "/services/social-media-management",
+    },
+    {
+      title: "App Devlopment",
+      titleDisplay: "App Devlopment",
+      gradient: "from-purple-300 to-blue-900",
+      description: "From ideation to launch, we develop high-performance mobile apps tailored to your business goals.",
+      link: "/services/app-development",
     },
     {
       title: "Custom Software",
-      icon: CustomIcon,
-      image: CustomSoftImg,
+      gradient: "from-cyan-200 to-cyan-800",
+      description: "We design and develop tailor-made software solutions to meet your unique business needs.",
       link: "/services/custom-software",
-      description:
-        "We design and develop tailor-made software solutions to meet your unique business needs. From web applications to internal tools, our custom software is scalable, secure, and built to boost your efficiency, productivity, and growth.",
     },
   ];
 
+  const websiteServices = [
+    { id: 1, text: "Custom Website Development", link: "/services/web-development" },
+    { id: 2, text: "Performance & SEO-Ready Builds", link: "/services/web-development" },
+    { id: 3, text: "Responsive, Scalable Architecture", link: "/services/web-development" },
+    { id: 4, text: "CMS & Content Systems", link: "/services/web-development" },
+  ];
+
+  const aimlServices = [
+    { id: 1, text: "AI-Powered Automation", link: "/services/ai-ml-solutions" },
+    { id: 2, text: "Machine Learning Models", link: "/services/ai-ml-solutions" },
+    { id: 3, text: "Data Driven Intelligence System", link: "/services/ai-ml-solutions" },
+    { id: 4, text: "Smart Integration & Workflows", link: "/services/ai-ml-solutions" },
+  ];
+
+  const dataAnalysisServices = [
+    { id: 1, text: "Data Collection & Structuring", link: "/services/data-analysis" },
+    { id: 2, text: "Dashboard & Reporting Systems", link: "/services/data-analysis" },
+    { id: 3, text: "Insight Extraction & Visualization", link: "/services/data-analysis" },
+    { id: 4, text: "Performance & Behavior Analysis", link: "/services/data-analysis" },
+  ];
+
+  const socialMediaServices = [
+    { id: 1, text: "Content Creation & Curation", link: "/services/social-media-management" },
+    { id: 2, text: "Audience Engagement Strategies", link: "/services/social-media-management" },
+    { id: 3, text: "Analytics & Performance Tracking", link: "/services/social-media-management" },
+    { id: 4, text: "Platform-Specific Campaigns", link: "/services/social-media-management" },
+  ];
+
+  const appDevelopmentServices = [
+    { id: 1, text: "iOS & Android Apps", link: "/services/app-development" },
+    { id: 2, text: "Cross-Platform Solutions", link: "/services/app-development" },
+    { id: 3, text: "User-Centric Design", link: "/services/app-development" },
+    { id: 4, text: "App Store Deployment", link: "/services/app-development" },
+  ];
+
+  const customSoftwareServices = [
+    { id: 1, text: "Bespoke Software Solutions", link: "/services/custom-software" },
+    { id: 2, text: "System Integration", link: "/services/custom-software" },
+    { id: 3, text: "Maintenance & Support", link: "/services/custom-software" },
+    { id: 4, text: "Scalable Architecture", link: "/services/custom-software" },
+  ];
+
   return (
-    <div>
-      <BreadCrumbs headText={"Services"} items={breadcrumbItems} />
-      {/* Services Section */}
-      <section className="flex bg-white flex-col items-center justify-center py-10 lg:pt-24">
-        <h2
-          className="sora-700 text-center mb-4 text-4xl leading-[3rem] md:leading-[3.3rem] text-primary font-bold"
-          data-aos="fade-up"
-        >
-          Our awesome <br /> services to give you success
-        </h2>
-        <div className="grid gap-8 mt-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 px-5 lg:px-8">
-          {services.map((item, index) => (
-            <ServiceBox key={index} data={item} />
-          ))}
+    <div className="bg-[#01070f] min-h-screen">
+      {/* Header Section */}
+      <section className="pt-32 pb-20 text-center px-4">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Our Capabilities</h1>
+        <p className="text-gray-400 max-w-xl mx-auto text-lg leading-relaxed">
+          Focused services designed to bring clarity, structure,
+          and intelligence to digital products.
+        </p>
+      </section>
+
+      {/* Services Horizontal Strip */}
+      <section className="border-t border-b border-white/10 w-full overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-0">
+          <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="flex-1 p-8 group hover:bg-white/5 transition-colors cursor-pointer" // Hover effect
+              >
+                <h3 className="text-white font-medium mb-6 text-sm tracking-wide">{service.title}</h3>
+
+                {/* Gradient Card */}
+                <div className={`
+                  w-full aspect-square rounded-2xl relative overflow-hidden
+                  bg-gradient-to-br ${service.gradient}
+                  opacity-90 group-hover:opacity-100 transition-opacity duration-500
+                `}>
+                  {/* Pseudo-element for the "cone" shine effect */}
+                  <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-700 opacity-50 origin-center" />
+
+                  {/* Center "Light" effect simulation */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1/2 bg-white/30 blur-md" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-      {/* Working Process Flex */}
-      <div className="bg-white">
-        <WorkingProcessFlex />
+
+      {/* Spacer or Remaining Content */}
+      <div className="bg-[#01070f]">
+        <ServiceDetailList
+          title="Website Development"
+          items={websiteServices}
+        />
+        <ServiceDetailList
+          title="AI/ML Solutions"
+          items={aimlServices}
+        />
+        <ServiceDetailList
+          title="Data Analysis"
+          items={dataAnalysisServices}
+        />
+        <ServiceDetailList
+          title="Social Media Management"
+          items={socialMediaServices}
+        />
+        <ServiceDetailList
+          title="App Development"
+          items={appDevelopmentServices}
+        />
+        <ServiceDetailList
+          title="Custom Software"
+          items={customSoftwareServices}
+        />
       </div>
+
+      {/* Let's Build CTA Section */}
+      <LetsBuildCTA />
+      <ContactSection />
     </div>
   );
 };

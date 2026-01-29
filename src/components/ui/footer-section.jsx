@@ -1,170 +1,151 @@
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Send, Twitter, Youtube, Mail, Phone, MapPin, X } from "lucide-react"
 import { Link } from "react-router-dom"
+import { FaXTwitter } from "react-icons/fa6"
 
 function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(false)
-  const [isChatOpen, setIsChatOpen] = React.useState(false)
-
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [isDarkMode])
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <footer
-      className="relative border-t bg-background text-foreground transition-colors duration-300">
-      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Let's Talk.</h2>
-            <p className="mb-6 text-muted-foreground">
-              Have an idea or project in mind? Let’s build something great together. Whether you need a stunning website, AI integration, or social media that actually converts — we’re ready when you are.
+    <footer className="bg-[#01070f] text-white pt-20 pb-10 border-t border-white/5">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-16">
+          {/* Column 1: Brand & Contact */}
+          <div className="space-y-6">
+            <Link to="/" onClick={handleScrollToTop} className="flex items-center gap-2">
+              <img src="https://res.cloudinary.com/dlcrtc03w/image/upload/w_300,c_limit/v1769192617/10Sight_White_zu5kai.png" alt="10Sight" width="150" height="40" className="h-8 w-auto object-contain" />
+              <div className="flex flex-col leading-tight min-w-[120px]">
+                <span className="text-xl font-bold tracking-tight">10sight</span>
+                <span className="text-xs text-gray-400 tracking-widest uppercase">Technologies</span>
+              </div>
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              we believe technology isn't just about code <br />
+              — it's about creativity, curiosity, and connection.
             </p>
-            <form className="relative">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm" />
-              <Button
-                type="submit"
-                size="icon"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105">
-                <Send className="h-4 w-4" />
-                <span className="sr-only">Subscribe</span>
-              </Button>
-            </form>
-            <div
-              className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+            <div className="space-y-4 pt-4">
+              <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                <Mail className="h-5 w-5 text-gray-500" />
+                <a href="mailto:Info@10sight.Tech" className="text-sm">Email: info@10sight.tech</a>
+              </div>
+              <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                <Phone className="h-5 w-5 text-gray-500" />
+                <a href="tel:9711341936" className="text-sm">Phone: 9711341936</a>
+              </div>
+              <div className="flex items-start gap-3 text-gray-300">
+                <MapPin className="h-5 w-5 text-gray-500 mt-0.5" />
+                <div className="text-sm">
+                  <p>New Delhi, India</p>
+                  <p>Shalimar Bagh - 110088</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
-            <nav className="space-y-2 text-sm">
-              <Link to="/" className="block transition-colors hover:text-primary">
-                Home
-              </Link>
-              {/* <Link to="portfolio" className="block transition-colors hover:text-primary">
-                Portfolio
-              </Link> */}
-              <Link to="/services" className="block transition-colors hover:text-primary">
+
+          {/* Column 2: Quick Links */}
+          <div className="lg:pl-8 lg:border-l border-white/10">
+            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
+            <nav className="flex flex-col space-y-4">
+              <button onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 text-left w-fit">
+                Go To Top
+              </button>
+              <Link to="/services" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
                 Services
               </Link>
-              <Link to="/about-us" className="block transition-colors hover:text-primary">
-                About Us
+              <Link to="/about-us" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
+                Why We Exist
               </Link>
-              <Link to="/contact-us" className="block transition-colors hover:text-primary">
+              <Link to="/why-choose-us" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
+                Why Choose Us
+              </Link>
+              <Link to="/contact-us" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
                 Contact Us
+              </Link>
+              <Link to="/faqs" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
+                FAQs
               </Link>
             </nav>
           </div>
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
-            <address className="space-y-2 text-sm not-italic">
-              <p>India, New Delhi</p>
-              <p>Shalimar Bagh - 110088</p>
-              <p>Phone: <a href="tel:919711341936">9711341936</a></p>
-              <p>Email: <a href="mailto:10sight.ten@gmail.com">10Sight.ten@gmail.com</a></p>
-            </address>
+
+          {/* Column 3: Legal */}
+          <div className="lg:pl-8 lg:border-l border-white/10">
+            <h3 className="text-lg font-semibold mb-6">Legal</h3>
+            <nav className="flex flex-col space-y-4">
+              <Link to="/privacy-policy" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-of-service" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
+                Terms Of Services
+              </Link>
+              <Link to="/msme-registered" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
+                MSME Registered
+              </Link>
+              <Link to="/cookie-settings" onClick={handleScrollToTop} className="text-sm text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 w-fit">
+                Cookie Settings
+              </Link>
+            </nav>
           </div>
-          <div className="relative">
-            <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
-            <div className="mb-6 flex space-x-4">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Facebook className="h-4 w-4" />
-                      <span className="sr-only">Facebook</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Follow us on Facebook</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Follow us on Twitter</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Instagram className="h-4 w-4" />
-                      <span className="sr-only">Instagram</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Follow us on Instagram</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Linkedin className="h-4 w-4" />
-                      <span className="sr-only">LinkedIn</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Connect with us on LinkedIn</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
-            {/* <div className="flex items-center space-x-2">
-              <Sun className="h-4 w-4" />
-              <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={setIsDarkMode} />
-              <Moon className="h-4 w-4" />
-              <Label htmlFor="dark-mode" className="sr-only">
-                Toggle dark mode
-              </Label>
-            </div> */}
+
+          {/* Column 4: Newsletter */}
+          <div className="lg:pl-8">
+            <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
+            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+              Have an idea or project in mind? <br />
+              Let's build something great together. <br />
+              Whether you need a stunning website, <br />
+              AI integration, or social media that <br />
+              actually converts — we're ready when you are.
+            </p>
+            <form className="relative mb-8 max-w-sm">
+              <div className="relative">
+                <Input
+                  type="email"
+                  placeholder="Enter Your Email"
+                  className="w-full pr-14 pl-6 h-14 bg-white/5 border-white/20 text-white placeholder:text-gray-400 rounded-full focus:ring-1 focus:ring-white/30 focus:border-white/30 hover:border-white/30 transition-all"
+                />
+                <Button
+                  type="submit"
+                  size="icon"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white hover:bg-gray-200 text-[#01070f] transition-colors"
+                >
+                  <Send className="h-5 w-5 -ml-0.5" />
+                  <span className="sr-only">Subscribe</span>
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
-        <div
-          className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
-          <p className="text-sm text-muted-foreground">
+
+        {/* Footer Bottom */}
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-6">
+          <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} 10Sight Technologies. All rights reserved.
           </p>
-          <nav className="flex gap-4 text-sm">
-            <Link to="/privacy-policy" className="transition-colors hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-of-service" className="transition-colors hover:text-primary">
-              Terms of Service
-            </Link>
-            <Link to="/cookie-settings" className="transition-colors hover:text-primary">
-              Cookie Settings
-            </Link>
-          </nav>
+          <div className="flex gap-4">
+            <a href="https://www.youtube.com/@10SightTechnologies" target="_blank" rel="noopener noreferrer" className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors">
+              <Youtube className="h-4 w-4" />
+            </a>
+            <a href="https://www.instagram.com/10sight_technologies/" target="_blank" rel="noopener noreferrer" className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors">
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a href="https://www.linkedin.com/company/110903449/" target="_blank" rel="noopener noreferrer" className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors">
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61581662770730" target="_blank" rel="noopener noreferrer" className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors">
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a href="https://x.com/10SightTech" target="_blank" rel="noopener noreferrer" className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors">
+              <FaXTwitter className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
 export { Footerdemo }

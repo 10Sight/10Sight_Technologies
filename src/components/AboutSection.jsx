@@ -9,9 +9,7 @@ import about1 from "../assets/about/about1.jpg";
 
 const AboutSection = ({ btn }) => {
   // Initialize AOS on mount
-  useEffect(() => {
-    AOS.init({ once: true }); // `once: true` prevents repeated animation
-  }, []);
+
 
   const { ref: counterRef, inView: counterInView } = useInView({
     triggerOnce: true,

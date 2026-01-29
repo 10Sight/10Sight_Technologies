@@ -47,6 +47,7 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
@@ -56,24 +57,29 @@
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
   }
+
   @keyframes accordion-down {
-  from {
-    height: 0;
+    from {
+      height: 0;
     }
-  to {
-    height: var(--radix-accordion-content-height);
+
+    to {
+      height: var(--radix-accordion-content-height);
     }
   }
+
   @keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
+    from {
+      height: var(--radix-accordion-content-height);
     }
-  to {
-    height: 0;
+
+    to {
+      height: 0;
     }
   }
 }
@@ -151,7 +157,97 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: "Red Hat Display", sans-serif;
   }
+
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    /* Bold */
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 45px;
+      font-weight: 700;
+    }
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    /* Bold */
+  }
+
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 36px;
+      font-weight: 500;
+      /* Medium */
+    }
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    /* Bold */
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 500;
+    /* Medium */
+  }
+
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 22px;
+      font-weight: 500;
+    }
+  }
+
+  h5 {
+    font-size: 13px;
+    font-weight: 400;
+    /* Regular */
+  }
+
+  /* Desktop same as mobile for H5 */
+
+  p {
+    font-size: 13px;
+    font-weight: 400;
+    /* Regular */
+  }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

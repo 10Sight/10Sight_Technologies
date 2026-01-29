@@ -1,134 +1,171 @@
-import BreadCrumbs from "@/components/BreadCrumbs";
 import React from "react";
-
-import DataAnalystImg from "/services/Data-Analyst.webp";
-import ServiceDetail from "@/components/ServiceDetail";
-import { FeaturesSectionWithHoverEffects } from "@/components/feature-section-with-hover-effects";
-import {
-  IconChartBar,
-  IconDatabase,
-  IconBrain,
-  IconDeviceAnalytics,
-  IconReportAnalytics,
-  IconSearch,
-} from "@tabler/icons-react";
+import ServiceHero from "@/components/ServiceHero";
+import ServiceVideoSection from "@/components/ServiceVideoSection";
+import CLOUDINARY_ASSETS from "@/cloudinaryAssets";
 import { FaqSection } from "@/components/faq";
-import { Cta4 } from "@/components/cta-4";
+import ServiceDetailList from "@/components/ServiceDetailList";
+import LetsBuildCTA from "@/components/LetsBuildCTA";
+import ContactSection from "@/components/ContactSection";
+import GlassServiceGrid from "@/components/GlassServiceGrid";
+import {
+  BarChart4,
+  LineChart,
+  PieChart,
+  Database,
+  TrendingUp,
+  SearchCheck
+} from "lucide-react";
 
 const DataAnalytics = () => {
-  const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "Service", href: "/services" },
-    { label: "Data Analyst" },
+  const heroPoints = [
+    {
+      id: 1,
+      title: "Actionable Intelligence",
+      description: "Transform raw numbers into clear, actionable strategies. We help you move from 'what happened' to 'what should we do next'.",
+      image: CLOUDINARY_ASSETS.WEB_DEVELOPMENT.POINT_1 // Ideally use Data-specific image if available
+    },
+    {
+      id: 2,
+      title: "Real-Time Dashboards",
+      description: "Visualize your KPIs instantly with interactive dashboards that keep your finger on the pulse of your business performance.",
+      image: CLOUDINARY_ASSETS.WEB_DEVELOPMENT.POINT_2
+    },
+    {
+      id: 3,
+      title: "Predictive Forecasting",
+      description: "Look ahead with confidence. Our advanced models analyze historical trends to predict future opportunities and risks.",
+      image: CLOUDINARY_ASSETS.WEB_DEVELOPMENT.POINT_3
+    },
+    {
+      id: 4,
+      title: "Data Integrity & Security",
+      description: "Trust your data. We implement robust governance and cleaning processes to ensure accuracy, compliance, and security.",
+      image: CLOUDINARY_ASSETS.WEB_DEVELOPMENT.POINT_4
+    }
   ];
-
-  const dataAnalyst = {
-    image: DataAnalystImg,
-    alt: "Data Analyst Service",
-    title: "Why Data Analysis is Important?",
-    points: [
-      "Make Informed Business Decisions",
-      "Identify Trends and Opportunities",
-      "Optimize Operations and Reduce Costs",
-      "Measure and Improve Performance",
-    ],
-    description:
-      "Data is the new currency of business. Effective analysis transforms raw numbers into actionable insights, helping you understand your market, customers, and performance so you can make smarter decisions with confidence.",
-  };
-
-  const ourData = {
-    features: [
-      {
-        title: "Data Collection & Cleaning",
-        description:
-          "Accurate data starts with proper collection, cleaning, and preparation for analysis.",
-        icon: <IconDatabase />,
-      },
-      {
-        title: "Advanced Data Visualization",
-        description:
-          "Clear and engaging charts, dashboards, and reports to make complex data easy to understand.",
-        icon: <IconChartBar />,
-      },
-      {
-        title: "Predictive Analytics",
-        description:
-          "Use historical data to forecast trends and make proactive business decisions.",
-        icon: <IconBrain />,
-      },
-      {
-        title: "Business Intelligence",
-        description:
-          "Turn data into strategic insights that drive growth and efficiency.",
-        icon: <IconDeviceAnalytics />,
-      },
-      {
-        title: "Performance Tracking",
-        description:
-          "Monitor KPIs and performance metrics to stay aligned with your goals.",
-        icon: <IconReportAnalytics />,
-      },
-      {
-        title: "Data-Driven Strategy",
-        description:
-          "Leverage insights to create informed strategies and stay ahead of competitors.",
-        icon: <IconSearch />,
-      },
-    ],
-  };
 
   const dataFaq = [
     {
       question: "What types of data can you analyze?",
       answer:
-        "We work with sales data, customer behavior data, financial reports, website analytics, marketing campaign results, and more.",
+        "We handle diverse datasets including sales figures, customer behavior logs, financial reports, marketing metrics, and website analytics."
     },
     {
       question: "Can you create dashboards for my business?",
       answer:
-        "Yes. We build custom dashboards using tools like Power BI, Tableau, or Google Data Studio for real-time insights.",
+        "Yes. We specialize in building custom, interactive dashboards using Power BI, Tableau, and Google Looker Studio for real-time monitoring."
     },
     {
-      question: "Do you offer ongoing data analysis services?",
+      question: "Do you offer ongoing analysis?",
       answer:
-        "Absolutely. We provide monthly, quarterly, or project-based analysis depending on your needs.",
+        "Absolutely. We provide continuous monthly or quarterly analysis packages to track performance changes and refine strategies over time."
     },
     {
       question: "Will you help me interpret the data?",
       answer:
-        "Yes. We don’t just deliver numbers — we explain what they mean and how to use them for better decision-making.",
+        "Yes. We don't just dump numbers on you. We provide executive summaries and clear explanations of what the data means for your business decisions."
     },
     {
-      question: "Can you integrate data from multiple sources?",
+      question: "Can you integrate data from different sources?",
       answer:
-        "Yes. We can consolidate data from different platforms, CRMs, and databases into one unified report.",
+        "Yes. We can aggregate data from CRMs, ERPs, ad platforms, and spreadsheets into a single source of truth (Data Warehouse)."
     },
     {
-      question: "Is my data secure with you?",
+      question: "Is my data secure?",
       answer:
-        "Yes. We follow strict data privacy and security protocols to ensure your information remains confidential.",
+        "Yes. We adhere to strict data privacy standards (GDPR/CCPA compliant workflows) and use encrypted channels for all data handling."
+    }
+  ];
+
+  const dataServices = [
+    { id: 1, text: "Business Intelligence (BI)", link: "/services/bi" },
+    { id: 2, text: "Data Visualization & Dashboards", link: "/services/data-viz" },
+    { id: 3, text: "Predictive Analytics", link: "/services/predictive" },
+    { id: 4, text: "Data Warehousing & ETL", link: "/services/etl" },
+    { id: 5, text: "Big Data Solutions", link: "/services/big-data" },
+    { id: 6, text: "Marketing Analytics", link: "/services/marketing-analytics" },
+  ];
+
+  const whyChooseUsData = [
+    {
+      icon: <Database className="w-6 h-6" />,
+      title: "Data Collection & Cleaning",
+      description: "We ensure your foundation is solid by meticulously gathering and sanitizing your data for accuracy."
     },
+    {
+      icon: <BarChart4 className="w-6 h-6" />,
+      title: "Advanced Visualization",
+      description: "Turning complex datasets into intuitive charts and graphs that anyone can understand."
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Trend Identification",
+      description: "Spotting emerging market shifts and internal patterns before your competitors do."
+    },
+    {
+      icon: <LineChart className="w-6 h-6" />,
+      title: "Performance Tracking",
+      description: "Setting up and monitoring the right KPIs to ensure you hit your strategic goals."
+    },
+    {
+      icon: <PieChart className="w-6 h-6" />,
+      title: "Strategic Insights",
+      description: "Providing deep-dive analysis that answers specific business questions and guides strategy."
+    },
+    {
+      icon: <SearchCheck className="w-6 h-6" />,
+      title: "Data-Driven Culture",
+      description: "Helping you foster a culture where decisions are backed by evidence, not guesswork."
+    }
   ];
 
   return (
-    <div>
-      <BreadCrumbs headText={"Data Analyst"} items={breadcrumbItems} />
-      <ServiceDetail data={dataAnalyst} />
-      <div className="bg-white">
-        <h2 className="text-center font-bold text-4xl pt-5">Why Choose Us</h2>
-        <FeaturesSectionWithHoverEffects data={ourData} />
+    <div className="bg-[#01070f] min-h-screen">
+
+      {/* Hero Section */}
+      <ServiceHero
+        title="Data Analytics"
+        subtitle="Why Data Analysis is Important?"
+        category="Business Intelligence"
+        points={heroPoints}
+        gradientFrom="from-cyan-400"
+        gradientVia="via-blue-500"
+        gradientTo="to-teal-900"
+      />
+
+      {/* Video Section */}
+      <ServiceVideoSection videoUrl={CLOUDINARY_ASSETS.WEB_DEVELOPMENT.BACKGROUND_VIDEO} />
+
+      {/* Why Choose Us Text Section */}
+      <div className="container mx-auto px-8 md:px-16 lg:px-24 py-24">
+        <div className="max-w-4xl">
+          <p className="text-gray-500 text-sm md:text-base font-medium mb-6">Why Choose Us</p>
+          <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight">
+            Data is the new currency. But without analysis, it's just noise. We turn your raw data into a competitive advantage, revealing the clear path forward.
+          </h2>
+        </div>
       </div>
+
+      {/* Why Choose Us Grid */}
+      <GlassServiceGrid items={whyChooseUsData} />
+
+      {/* Service Details */}
+      <div className='container mx-auto px-4 py-12'>
+        <ServiceDetailList title="Our Analytics Services" items={dataServices} />
+      </div>
+
+      {/* FAQ Section */}
       <FaqSection
-        title="Frequently Asked Questions"
-        description="Everything you need to know about our Data Analysis Service"
+        title="10Sight FAQs"
+        description="Answers to what clients usually ask about our Analytics Services"
         items={dataFaq}
       />
-      <Cta4
-        title="Turn Your Data Into Decisions"
-        description="Stop guessing and start knowing. We’ll help you uncover insights hidden in your data and turn them into actionable strategies."
-        buttonText="Analyze My Data"
-        buttonUrl="https://calendly.com/jatinnagar563/book-a-meeting"
-      />
+
+      {/* CTA Section */}
+      <LetsBuildCTA />
+
+      {/* Ready To Take Business Online CTA */}
+      <ContactSection />
     </div>
   );
 };
