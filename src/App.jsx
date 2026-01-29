@@ -96,6 +96,7 @@ const App = () => {
               {
                 "@type": "Organization",
                 "name": "10Sight Technologies",
+                "alternateName": ["TenSight", "10 Sight", "TenSight Technologies"],
                 "url": "${siteUrl}",
                 "logo": "${siteUrl}/android-chrome-512x512.png",
                 "sameAs": [

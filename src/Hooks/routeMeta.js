@@ -4,7 +4,7 @@ const routeMeta = [
     path: "/",
     title: "10Sight Technologies | IT Services, AI Solutions & Web Development",
     description: "Welcome to 10Sight Technologies — a leading IT solutions company offering Web Development, App Development, AI/ML Models, Data Analytics, and Custom Software services.",
-    keywords: "10Sight Technologies, IT services, AI, web development, app development, software solutions, custom software, digital transformation"
+    keywords: "10Sight Technologies, 10Sight, TenSight, 10 Sight, 10Sight India, IT services, AI, web development, app development, software solutions, custom software, digital transformation"
   },
   {
     path: "/contact-us",
