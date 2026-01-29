@@ -97,7 +97,7 @@ const App = () => {
                 "@type": "Organization",
                 "name": "10Sight Technologies",
                 "url": "${siteUrl}",
-                "logo": "${siteUrl}/logo.png",
+                "logo": "${siteUrl}/android-chrome-512x512.png",
                 "sameAs": [
                   "https://www.instagram.com/10sight_technologies/",
                   "https://x.com/@10Sight98603"
