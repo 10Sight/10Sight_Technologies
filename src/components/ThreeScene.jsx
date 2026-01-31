@@ -35,7 +35,7 @@ const ThreeScene = ({ modelType = 'android' }) => {
     }, []);
 
     return (
-        <div className="w-full h-full bg-transparent">
+        <div className={`w-full h-full bg-transparent ${isMobile ? 'pointer-events-none' : ''}`}>
             <Canvas camera={{ position: [3.5, 2.2, 6], fov: 38 }}>
                 {/* Lighting */}
                 <ambientLight intensity={0.4} />
