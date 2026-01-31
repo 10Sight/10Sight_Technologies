@@ -22,6 +22,18 @@ const ThreeScene = ({ modelType = 'android' }) => {
         }
     }
 
+    // Mobile detection for rotation disable
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <div className="w-full h-full bg-transparent">
             <Canvas camera={{ position: [3.5, 2.2, 6], fov: 38 }}>
@@ -69,7 +81,13 @@ const ThreeScene = ({ modelType = 'android' }) => {
 
                 <ContactShadows position={[0, -2.5, 0]} opacity={0.4} scale={10} blur={2} far={4} />
 
-                <OrbitControls enableZoom={false} enablePan={false} minPolarAngle={Math.PI / 4} maxPolarAngle={Math.PI / 1.5} />
+                <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                    enableRotate={!isMobile}
+                    minPolarAngle={Math.PI / 4}
+                    maxPolarAngle={Math.PI / 1.5}
+                />
             </Canvas>
         </div>
     );
