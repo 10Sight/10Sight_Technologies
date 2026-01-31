@@ -131,6 +131,7 @@ const CustomSoftware = () => {
         gradientFrom="from-emerald-400"
         gradientVia="via-cyan-500"
         gradientTo="to-blue-900"
+        modelType="custom"
       />
 
       {/* Video Section */}

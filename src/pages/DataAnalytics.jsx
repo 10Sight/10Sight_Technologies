@@ -131,6 +131,7 @@ const DataAnalytics = () => {
         gradientFrom="from-cyan-400"
         gradientVia="via-blue-500"
         gradientTo="to-teal-900"
+        modelType="data"
       />
 
       {/* Video Section */}

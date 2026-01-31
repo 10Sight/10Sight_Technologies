@@ -131,6 +131,7 @@ const SocialMediaManagement = () => {
         gradientFrom="from-orange-400"
         gradientVia="via-pink-600"
         gradientTo="to-purple-900"
+        modelType="social"
       />
 
       {/* Video Section */}

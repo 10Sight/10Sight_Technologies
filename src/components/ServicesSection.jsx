@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Monitor, Cpu, BarChart3, Share2, Square, Sparkles, Database, Triangle } from 'lucide-react';
+import { Monitor, Cpu, BarChart3, Share2, Square, Sparkles, Database, Triangle, Smartphone } from 'lucide-react';
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { CLOUDINARY_ASSETS } from '../cloudinaryAssets';
+
+// Lazy load 3D Scene
+const ThreeScene = lazy(() => import('./ThreeScene'));
 
 const services = [
     {
@@ -12,7 +15,18 @@ const services = [
         link: "/services/web-development",
         icon: Square,
         video: CLOUDINARY_ASSETS.SERVICES.WEB_DEV_VIDEO,
+        use3D: true, // Show 3D model
+        modelType: 'web',
         color: "from-blue-600 to-cyan-500"
+    },
+    {
+        id: 6, // Adding App Development
+        title: "App Development",
+        link: "/services/app-development",
+        icon: Smartphone,
+        video: null, // No video, using 3D model
+        use3D: true,
+        color: "from-green-600 to-emerald-500"
     },
     {
         id: 2,
@@ -20,6 +34,8 @@ const services = [
         link: "/services/ai-ml-models",
         icon: Sparkles,
         video: CLOUDINARY_ASSETS.SERVICES.AI_ML_VIDEO,
+        use3D: true,
+        modelType: 'ai',
         color: "from-purple-600 to-pink-500"
     },
     {
@@ -27,7 +43,9 @@ const services = [
         title: "Data Analysis",
         link: "/services/data-analytics",
         icon: Database,
-        video: CLOUDINARY_ASSETS.SERVICES.DATA_ANALYSIS_VIDEO,
+        video: null,
+        use3D: true,
+        modelType: 'data',
         color: "from-emerald-600 to-teal-500"
     },
     {
@@ -35,8 +53,20 @@ const services = [
         title: "Social Media Management",
         link: "/services/social-media-management",
         icon: Triangle,
-        video: CLOUDINARY_ASSETS.SERVICES.SOCIAL_MEDIA_VIDEO,
+        video: null,
+        use3D: true,
+        modelType: 'social',
         color: "from-orange-600 to-red-500"
+    },
+    {
+        id: 5,
+        title: "Custom Software Solutions",
+        link: "/services/custom-software",
+        icon: Cpu,
+        video: null,
+        use3D: true,
+        modelType: 'custom',
+        color: "from-yellow-600 to-amber-500"
     }
 ];
 
@@ -150,7 +180,7 @@ const ServicesSection = () => {
                         ))}
                     </div>
 
-                    {/* Column 3: Video Preview */}
+                    {/* Column 3: Video Preview or 3D Model */}
                     <div className="lg:col-span-4 h-[300px] lg:h-[500px] relative sticky top-32">
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -159,21 +189,29 @@ const ServicesSection = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="absolute inset-0 rounded-3xl overflow-hidden bg-[#0b1727]"
+                                className={`absolute inset-0 rounded-3xl overflow-hidden ${activeService.use3D ? 'bg-transparent shadow-none' : 'bg-[#0b1727]'}`}
                             >
-                                {/* Video Element */}
-                                <video
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="w-full h-full object-cover relative z-10"
-                                    src={activeService.video}
-                                    onError={(e) => e.target.style.display = 'none'}
-                                />
+                                {activeService.use3D ? (
+                                    <div className="w-full h-full relative z-10">
+                                        <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-white/50">Loading Model...</div>}>
+                                            <ThreeScene modelType={activeService.modelType || 'android'} />
+                                        </Suspense>
+                                    </div>
+                                ) : (
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover relative z-10"
+                                        src={activeService.video}
+                                        onError={(e) => e.target.style.display = 'none'}
+                                    />
+                                )}
 
-                                {/* Fallback Gradient */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${activeService.color} opacity-20 -z-0`} />
+                                {!activeService.use3D && (
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${activeService.color} opacity-20 -z-0`} />
+                                )}
                             </motion.div>
                         </AnimatePresence>
                     </div>

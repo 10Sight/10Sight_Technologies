@@ -8,9 +8,10 @@ export const CLOUDINARY_ASSETS = {
     },
     SERVICES: {
         WEB_DEV_VIDEO: "https://res.cloudinary.com/dlcrtc03w/video/upload/v1769366000/web_dev_placeholder.mp4",
-        AI_ML_VIDEO: "https://res.cloudinary.com/dlcrtc03w/video/upload/v1769366000/ai_ml_placeholder.mp4",
+        AI_ML_VIDEO: "https://res.cloudinary.com/dlcrtc03w/video/upload/v1769711848/Ai-ML_bntiul.mp4",
         DATA_ANALYSIS_VIDEO: "https://res.cloudinary.com/dlcrtc03w/video/upload/v1769366000/data_placeholder.mp4",
         SOCIAL_MEDIA_VIDEO: "https://res.cloudinary.com/dlcrtc03w/video/upload/v1769366000/social_placeholder.mp4",
+        CUSTOM_SOFTWARE_VIDEO: "https://res.cloudinary.com/dlcrtc03w/video/upload/v1769711818/App_dev_sr6t0y.mp4",
         BACKGROUND_VIDEO: "https://res.cloudinary.com/dlcrtc03w/video/upload/v1769429005/Web_Gradient_BG_1_kqblc4.mp4", // New Background Video
     },
     VISION: {

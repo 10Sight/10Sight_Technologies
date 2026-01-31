@@ -9,8 +9,6 @@ const TestimonialSection = lazy(() => import("@/components/TestimonialSection"))
 const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
 const WhyWeExist = lazy(() => import("@/components/WhyWeExist"));
 const VisionSection = lazy(() => import("@/components/VisionSection"));
-
-
 const Home = () => {
   return (
     <div>
@@ -28,7 +26,7 @@ const Home = () => {
         <TestimonialSection />
         <ContactSection />
       </Suspense>
-    </div>
+    </div >
   );
 };
 
